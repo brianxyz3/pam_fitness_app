@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Beginner Full Body",
+    "difficulty": "Easy",
+    "duration_weeks": 4
+  },
+  {
+    "id": 2,
+    "name": "Strength Builder",
+    "difficulty": "Medium",
+    "duration_weeks": 8
+  },
+  {
+    "id": 3,
+    "name": "HIIT Fat Burner",
+    "difficulty": "Hard",
+    "duration_weeks": 6
+  },
+  {
+    "id": 4,
+    "name": "Advanced Muscle Gain",
+    "difficulty": "Expert",
+    "duration_weeks": 12
+  }
+]
