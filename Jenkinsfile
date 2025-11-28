@@ -20,7 +20,6 @@ pipeline {
             steps {
                 script {
                     sh """
-                    cd backend
                     docker build -t pam-fitness-backend .
                     """
                 }
