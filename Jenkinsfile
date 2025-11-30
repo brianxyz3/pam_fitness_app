@@ -19,13 +19,52 @@ pipeline {
         stage('Build Backend') {
             steps {
                 script {
-                    sh """
-                    docker build -t pam-fitness-backend .
-                    """
+                    sh "docker build -t pam-fitness-backend ."
                 }
             }
         }
 
-        
+        // stage('Login to ECR') {
+        //     steps {
+        //         script {
+        //             sh """
+        //             aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $BACKEND_ECR
+        //             """
+        //         }
+        //     }
+        // }
+
+        // stage('Tag & Push Images') {
+        //     steps {
+        //         script {
+        //             sh """
+        //             docker tag pam-fitness-backend:latest $BACKEND_ECR:latest
+
+        //             docker push $BACKEND_ECR:latest
+        //             """
+        //         }
+        //     }
+        // }
+
+        // stage('Deploy to EC2') {
+        //     steps {
+        //         script {
+        //             withCredentials([sshUserPrivateKey(credentialsId: 'ec2-ssh-key', keyFileVariable: 'KEY')]) {
+
+        //                 // BACKEND DEPLOY (via Bastion)
+        //                 sh """
+        //                 ssh -o StrictHostKeyChecking=no -i $KEY -A $BASTION_EC2 '
+        //                     ssh -o StrictHostKeyChecking=no ec2-user@$BACKEND_EC2 "
+        //                         sudo docker pull $BACKEND_ECR:latest &&
+        //                         sudo docker stop backend || true &&
+        //                         sudo docker rm backend || true &&
+        //                         sudo docker run -d --name backend -p 8000:8000 $BACKEND_ECR:latest
+        //                     "
+        //                 '
+        //                 """
+        //             }
+        //         }
+        //     }
+        // }
     }
 }
