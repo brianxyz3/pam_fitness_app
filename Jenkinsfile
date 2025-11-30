@@ -20,7 +20,7 @@ pipeline {
             steps {
                 script {
                     sh """
-                    docker.build("pam-fitness-backend")
+                    docker.build('pam-fitness-backend')
                     """
                 }
             }
