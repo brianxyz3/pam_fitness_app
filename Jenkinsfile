@@ -20,7 +20,7 @@ pipeline {
             steps {
                 script {
                     sh """
-                    docker.build('pam-fitness-backend')
+                    def backendImage = docker.build('pam-fitness-backend')
                     """
                 }
             }
