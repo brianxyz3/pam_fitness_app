@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'docker:24'
+            args '-v /var/run/docker.sock:/var/run/docker.sock'
+        }
+    }
 
     environment {
         AWS_REGION = 'eu-west-1'
@@ -19,7 +24,10 @@ pipeline {
         stage('Build Backend') {
             steps {
                 script {
-                    sh 'def backendImage = docker.build("backend:latest")'
+                    sh "
+                    docker --version
+                    docker build -t pam-fitness-backend .
+                    """
                 }
             }
         }
