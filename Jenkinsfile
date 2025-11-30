@@ -19,7 +19,9 @@ pipeline {
         stage('Build Backend') {
             steps {
                 script {
-                    sh "docker build -t pam-fitness-backend ."
+                    sh """
+                    docker.build("pam-fitness-backend")
+                    """
                 }
             }
         }
