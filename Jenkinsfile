@@ -29,6 +29,7 @@ pipeline {
                 script {
                     sh """
                     docker --version
+                    pwd && whoami && id
                     docker build -t pam-fitness-backend .
                     """
                 }
