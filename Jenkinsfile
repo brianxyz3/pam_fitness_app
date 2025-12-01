@@ -18,12 +18,6 @@ pipeline {
 
         stage('Build Backend') {
 
-                agent {
-                    docker {
-                        image 'docker:24'
-                    }
-                }
-
             steps {
                 script {
                     sh """
