@@ -21,7 +21,7 @@ pipeline {
                 agent {
                     docker {
                         image 'docker:24'
-\                    }
+                    }
                 }
 
             steps {
