@@ -2,8 +2,6 @@ pipeline {
     agent any
 
     environment {
-        HOME = '/var/lib/jenkins'
-        DOCKER_CONFIG = '/var/lib/jenkins/.docker'
         AWS_REGION = 'eu-west-1'
         BACKEND_ECR  = '849349795052.dkr.ecr.eu-west-1.amazonaws.com/pam_fitness_app_backend' // to be editted
         BASTION_EC2 = 'ec2-user@FRONTEND-EC2-PUBLIC-IP' // to be editted
@@ -30,8 +28,6 @@ pipeline {
             steps {
                 script {
                     sh """
-                    docker --version
-                    pwd && whoami && id
                     docker build -t pam-fitness-backend .
                     """
                 }
