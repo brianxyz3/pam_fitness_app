@@ -10,19 +10,12 @@ app = FastAPI(
     description="Backend API for gym coaches, nutritionists, and workout plans."
 )
 
-# frontend allowed dev origin url
-# origins = [
-#     "http://localhost:3000",
-#     "http://127.0.0.1:3000",
-# ]
-
-# frontend allowed prod origin url
-allowed_origins = os.getenv("ALLOWED_ORIGINS", "").split(",")
+# frontend allowed origin url
+origins = ["*"]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=allowed_origins, #allow origin url
-    allow_credentials=True,
+    allow_origins=origins, #allow all origin url
     allow_methods=["*"],
     allow_headers=["*"],
 )
